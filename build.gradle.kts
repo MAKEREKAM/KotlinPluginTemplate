@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.10"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "kr.vanilage"
@@ -22,9 +21,5 @@ tasks {
 
     compileTestKotlin {
         kotlinOptions.jvmTarget = "17"
-    }
-
-    shadowJar {
-        destinationDirectory = file("D:\\Programming\\Mcserver\\연구소\\plugins\\update") //여기에 프로젝트 내보내기 주소를 작성하세요.
     }
 }
