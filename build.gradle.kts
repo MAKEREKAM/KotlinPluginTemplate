@@ -22,4 +22,10 @@ tasks {
     compileTestKotlin {
         kotlinOptions.jvmTarget = "17"
     }
+
+    copy {
+        from("build/libs")
+        into("D:\\Programming\\Mcserver\\연구소\\plugins\\update") // 여기서 빌드 주소를 설정하세요.
+        include("*.jar")
+    }
 }
