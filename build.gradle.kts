@@ -18,13 +18,27 @@ dependencies {
 
 task("copy") {
     doLast {
-        copy {
-            from("build/libs") // 파일이 나오는 주소를 설정하세요.
-            include("*.jar")
-            into(buildPath)
-        }
+        val directory = File(buildPath)
 
-        delete(buildPath.plus("\\RELOAD"))
+        if (directory.exists() && directory.isDirectory) {
+            if (directory.listFiles().any {it.name == project.name + "-" + version + ".jar"}) {
+                copy {
+                    from("build/libs") // 파일이 나오는 주소를 설정하세요.
+                    include("*.jar")
+                    into(buildPath.plus("\\update"))
+                }
+
+                delete(buildPath.plus("\\update\\RELOAD"))
+            }
+
+            else {
+                copy {
+                    from("build/libs") // 파일이 나오는 주소를 설정하세요.
+                    include("*.jar")
+                    into(buildPath)
+                }
+            }
+        }
     }
 }
 
