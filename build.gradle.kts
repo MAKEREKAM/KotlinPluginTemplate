@@ -14,7 +14,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"); // 여기 버전을 바꿀수 있습니다.
+    implementation(kotlin("reflect"))
+    compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"); // 여기 버전을 바꿀수 있습니다.
 }
 
 task("copy") {
