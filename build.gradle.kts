@@ -39,6 +39,8 @@ task("copy") {
                     include("*.jar")
                     into(buildPath)
                 }
+
+                delete(buildPath.plus("\\update\\RELOAD"))
             }
         }
     }
